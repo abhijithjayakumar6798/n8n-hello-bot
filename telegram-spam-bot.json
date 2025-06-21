@@ -1,0 +1,77 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0543771b-0673-44eb-9a41-ee2146064ee5",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.telegram.org/bot7425294360:AAER3m6V4o3mlqeX_XWSq98NCh0aka3qhAo/sendMessage",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "chat_id",
+              "value": "5782793952"
+            },
+            {
+              "name": "text",
+              "value": "Hello from n8n!"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "860284a1-a9c7-4071-ae01-690558d21fae",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f735285d-86ff-48b4-8cd7-52088daa3b92",
+  "meta": {
+    "instanceId": "43b3646fbe358686f981eea4b5526874c4515fbc76887a51df3b166c6ca5f433"
+  },
+  "id": "0QVB5KjHqhOPE1Hf",
+  "tags": []
+}
